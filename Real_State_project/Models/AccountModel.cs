@@ -11,9 +11,31 @@ namespace Real_State_project.Models
 
         public AccountModel()
         {
-            listAccounts.Add(new account { username = "acc1", password = "123", roles = new string[] { "admin", "pm", "customer" } });
-            listAccounts.Add(new account { username = "acc2", password = "123", roles = new string[] { "pm", "customer" } });
-            listAccounts.Add(new account { username = "acc3", password = "123", roles = new string[] { "customer" } });
+            IAEntities1 db = new IAEntities1();
+            foreach (var item in db.users)
+            {
+                string role = "none";
+
+               if(item.usertypeId == 1)
+                {
+                    role = "Customer";
+                }
+                 else if (item.usertypeId == 2)
+                {
+                    role = "ProjectManager";
+                }
+                else if (item.usertypeId == 3)
+                {
+                    role = "TeamLeader";
+                }
+                else if (item.usertypeId == 4)
+                {
+                    role = "JuniorEngineer";
+                }
+                listAccounts.Add(new account { username = item.email, password = item.phone, roles = new string[] { role } });
+            }
+            listAccounts.Add(new account { username = "admin", password = "admin", roles = new string[] { "Admin" } });
+            
         }
 
         public account find(string username)

@@ -28,10 +28,21 @@ namespace Real_State_project.Controllers
             sessionPersiter.Username = avm.Account.username;
             return View("Success");
         }
+
+
         public ActionResult Logout(AccountViewModel avm)
         {
             sessionPersiter.Username = string.Empty;
             return RedirectToAction("Index");
         }
+
+        public ActionResult register()
+        {
+
+            users user = new users();
+            //user = db.UserRole.Where(c => c.Id != 1).ToList();
+            return View(user);
+        }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Real_State_project.Security;
 
 namespace Real_State_project.Controllers
 {
@@ -13,6 +14,7 @@ namespace Real_State_project.Controllers
         IAEntities1 db = new IAEntities1();
         // GET: Admin
 
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult list()
         {
             var users = db.users.ToList();

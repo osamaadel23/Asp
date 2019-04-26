@@ -297,6 +297,9 @@
     <Content Include="Views\Demo\work1.cshtml" />
     <Content Include="Views\Demo\work2.cshtml" />
     <Content Include="Views\Demo\work3.cshtml" />
+    <Content Include="Views\Demo\work5.cshtml" />
+    <Content Include="Views\Demo\work4.cshtml" />
+    <Content Include="Views\Account\register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

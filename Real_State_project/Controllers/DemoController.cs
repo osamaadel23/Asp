@@ -17,22 +17,34 @@ namespace Real_State_project.Controllers
             return View();
         }
 
-        [CustomAuthorize(Roles = "admin")]
+        [CustomAuthorize(Roles = "Customer")]
         public ActionResult work1()
         {
             return View("work1");
         }
 
-        [CustomAuthorize(Roles = "admin,pm")]
+        [CustomAuthorize(Roles = "ProjectManager")]
         public ActionResult work2()
         {
             return View("work2");
         }
 
-        [CustomAuthorize(Roles = "admin,pm,customer")]
+        [CustomAuthorize(Roles = "TeamLeader")]
         public ActionResult work3()
         {
             return View("work3");
+        }
+
+        [CustomAuthorize(Roles = "JuniorEngineer")]
+        public ActionResult work4()
+        {
+            return View("work4");
+        }
+
+        [CustomAuthorize(Roles = "Admin")]
+        public ActionResult work5()
+        {
+            return View("work5");
         }
     }
 }
